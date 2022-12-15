@@ -5,6 +5,7 @@ import matplotlib.pyplot as plt
 def show_plot(best_chromosome, inf_time=False):
     """
     This function is responsible for displaying plot.
+    Vẽ đồ thị để theo dõi đường đi
     
     Parameters
     ----------
@@ -15,7 +16,7 @@ def show_plot(best_chromosome, inf_time=False):
     plt.figure(num=1)
     plt.clf()
     plt.axis([Config.plt_ax_x_min, Config.plt_ax_x_max, Config.plt_ax_y_min,
-        Config.plt_ax_y_max])
+        Config.plt_ax_y_max])#thiết lập trục đồ thị
 
     _draw_path_points()
     _draw_obstacles()
@@ -49,6 +50,7 @@ def show_plot(best_chromosome, inf_time=False):
 def _draw_path_points():
     """
     This function is responsible for displaying path points on plot.
+    Chức năng này chịu trách nhiệm hiển thị các điểm đường dẫn trên ô.
     """
 
     node_x = []
@@ -64,6 +66,7 @@ def _draw_path_points():
 def _draw_obstacles():
     """
     This function is responsible for displaying obstacles on plot.
+    Chức năng này có nhiệm vụ hiển thị các chướng ngại vật trên cốt truyện.
     """
 
     obs_1_x = [2.5, 3.5, 3.5, 2.5, 2.5]
