@@ -1,5 +1,3 @@
-#!/usr/bin/env python
-
 """
 Script provide functionality related to ranking of the population. Ranking is 
 obtained using roulets wheel selection method.

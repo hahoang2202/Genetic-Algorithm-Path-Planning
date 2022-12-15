@@ -1,5 +1,3 @@
-#!/usr/bin/env python
-
 """
 Script provide functionality related to initialization of population based
 on nodes(path points) and links b/w nodes(path points)
