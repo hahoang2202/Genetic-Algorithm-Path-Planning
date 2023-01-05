@@ -43,29 +43,27 @@ def chr_best_fit_ind(chr_fit):
     Parameters
     ----------
     chr_fit : [numpy.ndarray]
-        [numpy array of chromosome population fitness]
         Mảng chỉ số thích nghi
     
     Returns
     -------
     [list]
-        [list of best fitness chromosome indices]
         Các NST có chỉ số tốt nhất
     """
 
-    temp_chr_fit = np.array(chr_fit, copy=True)# mảng các chỉ số
+    temp_chr_fit = np.array(chr_fit, copy=True)# mảng các chỉ số của NST
 
     chr_best_fit_index = []
 
     while len(chr_best_fit_index) < 3:
-
+        #Một mảng có các phần tử từ mảng chỉ số của NST và phần tử thứ nhất
         y = np.where(temp_chr_fit == np.amax(temp_chr_fit))[0]
 
         for i in range(len(y)):
-            chr_best_fit_index.append(int(y[i]))# thêm vào cuối mảng
+            chr_best_fit_index.append(int(y[i]))# thêm NST vào cuối mảng
 
         for i in chr_best_fit_index:
-            temp_chr_fit[i][0] = 0
+            temp_chr_fit[i][0] = 0 # tạo mảng NST rỗ
 
     return chr_best_fit_index
 
@@ -110,7 +108,7 @@ def chr_fit_based_conn(chr_conn):
     Returns
     -------
     [numpy.ndarray]
-        [numpy array of chromosome population fitness based on connections]
+        [mảng numpy của chỉ số thích nghi của quần thể nhiễm sắc thể dựa trên các kết nối]
     """
 
     chr_conn_fit = np.zeros((Config.pop_max, 1))
@@ -153,7 +151,7 @@ def chr_conn(chr_pop):
 
 def chr_fit_based_dist(chr_pts_consec_dist):
     """
-    Tính toán dựa trên tổng khoảng cách
+    Tính toán mức độ thích nghi dựa trên tổng khoảng cách
     
     Parameters
     ----------
@@ -163,15 +161,15 @@ def chr_fit_based_dist(chr_pts_consec_dist):
     Returns
     -------
     [numpy.ndarray]
-        [numpy array of individual chromosome fitness based on total distance]
+        [mảng numpy của chỉ số thích nghi nhiễm sắc thể riêng lẻ dựa trên tổng khoảng cách]
     """
 
-    chr_pop_fit_based_dist = np.zeros((Config.pop_max, 1))
+    chr_pop_fit_based_dist = np.zeros((Config.pop_max, 1)) # mảng gồm các phần tử = 0
 
     for i in range(Config.pop_max):
 
         chr_pop_fit_based_dist[i][0] = 10.0 * \
-            (1.0 / np.sum(chr_pts_consec_dist[i], keepdims=True))
+            (1.0 / np.sum(chr_pts_consec_dist[i], keepdims=True)) #nghịch đảo độ dài đường đi từ điểm đầu đến cuối
 
     return chr_pop_fit_based_dist
 

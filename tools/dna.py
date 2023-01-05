@@ -11,10 +11,13 @@ def dna(chr_pop_fitness, ranked_population, chr_best_fitness_index, last_pop):
     ----------
     chr_pop_fitness : [numpy.ndarray]
         [Chứa các giá trị thể chất của quần thể nhiễm sắc thể]
+
     ranked_population : [numpy.ndarray]
         [Chứa mảng numpy của quần thể nhiễm sắc thể được xếp hạng]
+
     chr_best_fitness_index : [list]
         [Chứa danh sách các chỉ số tốt nhất trong quần thể nhiễm sắc thể]
+
     last_pop : [numpy.ndarray]
         [Chứa mảng của dân số cuối cùng]
     Returns
@@ -47,9 +50,9 @@ def đột_biến(pop):#tạo đột biến
     NST_đột_biến = np.array(pop, copy=True)#mảng NST đột biến
 
     itr = 3
-    while itr < Config.pop_max:
+    while itr < Config.pop_max: 
         for k in range(Config.chr_len):
-            c = random.random()
+            c = random.random()# sinh số ngẫu nhiên
             if c < Config.mutation_rate and k != 0:
                 NST_đột_biến[itr, k] = random.randint(1, Config.npts - 2)
                 '''

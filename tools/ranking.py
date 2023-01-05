@@ -77,9 +77,9 @@ def _ranking_based_on_roulet_wheel_selection(chr_cum_prob):
         [bậc của các nhiễm sắc thể dựa trên phương pháp chọn lọc bánh xe roulets]
     """
 
-    rand_array = np.random.rand(Config.pop_max)
-    no_of_times_chr_got_choosen = np.zeros((Config.pop_max, 1))
-    chr_rank = np.zeros((Config.pop_max, 1))
+    rand_array = np.random.rand(Config.pop_max) # mảng chứa các phần tử được sinh ngẫu nhiên
+    no_of_times_chr_got_choosen = np.zeros((Config.pop_max, 1)) # mảng NST được chọn chứa các phần tử 0
+    chr_rank = np.zeros((Config.pop_max, 1)) # mảng xếp hạng các NST được khởi tạo với các phần tử 0
 
     for i in range(Config.pop_max):
         k = 0

@@ -47,25 +47,27 @@ def _link_distance(link):
 
             if link[i][j] > -0.1 and link[i][j+1] > -0.1:
 
-                link_dist[i][j] = calculate_distance(
-                    pt_1=Config.path_points[int(link[i][j])], pt_2=Config.path_points[int(link[i][j+1])])
-
+                link_dist[i][j] = calculate_distance (
+                    pt_1=Config.path_points[int(link[i][j])],
+                    pt_2=Config.path_points[int(link[i][j+1])]
+                )
+                    
     return link_dist
 
 
 def _link_prob(link_fit):
     """
-    This function calculates the probability of links.
+    Chức năng này tính toán xác suất của các liên kết.
     
     Parameters
     ----------
     link_fit : [numpy.ndarray]
-        [numpy array of links connections fitness based on distance]
+        [mảng numpy của các kết nối liên kết tập chỉ số dựa trên khoảng cách]
     
     Returns
     -------
     [numpy.ndarray]
-        [numpy array of links probability based on links fitness]
+        [mảng numpy của xác suất liên kết dựa trên độ phù hợp của liên kết]
     """
 
     link_prob = np.zeros((np.shape(link_fit)[0], np.shape(link_fit)[1]))
@@ -81,20 +83,19 @@ def _link_prob(link_fit):
 
 def _create_pop(link_cum_prob):
     """
-    This function is responsible for creating chromosome population based on connection
-    b/w links.
+    Chức năng này chịu trách nhiệm tạo ra tập hợp nhiễm sắc thể dựa trên sự kết nối
+    liên kết b/w.
     
     Parameters
     ----------
     link_cum_prob : [numpy.ndarray]
-        [numpy array of links cumulative probability based on links fitness]
+        [mảng numpy của xác suất tích lũy liên kết dựa trên độ phù hợp của liên kết]
     
     Returns
     -------
     [numpy.ndarray]
-        [numpy array of chromosome population based on connection b/w links]
+        [mảng numpy của tập thể nhiễm sắc thể dựa trên kết nối liên kết b/w]
     """
-
     pop = np.zeros((Config.pop_max, Config.chr_len))
     pop[:, 0] = Config.start_index
     pop[:, Config.chr_len - 1] = Config.end_index
@@ -137,25 +138,24 @@ def _create_pop(link_cum_prob):
                             pop[k][j+1] = Config.end_index
                             j += 1
             j += 1
-
     return pop
 
 
 def _both_equ(element_1, element_2):
     """
-    This function is responsible for finding if both elements are equal or not.
+    Hàm này chịu trách nhiệm tìm xem cả hai phần tử có bằng nhau hay không.
     
     Parameters
     ----------
     element_1 : [Int]
-        [First element for comparison]
+        [Yếu tố đầu tiên để so sánh]
     element_2 : [Int]
-        [Second element for comparison]
+        [Yếu tố thứ hai để so sánh]
     
     Returns
     -------
     [Bool]
-        [True or False based on wether both elements were equal or not]
+        [Đúng hay Sai? Cả hai yếu tố có bằng nhau hay không?]
     """
 
     return True if int(element_1) == int(element_2) else False
@@ -163,19 +163,19 @@ def _both_equ(element_1, element_2):
 
 def calculate_distance(pt_1, pt_2):
     """
-    This function encapsulates the capability of calculating distance b/w two points.
+    Chức năng này gói gọn khả năng tính toán khoảng cách b/w hai điểm.
     
     Parameters
     ----------
     pt_1 : [Float]
-        [point 1 for calculating distance]
+        [điểm 1 để tính khoảng cách]
     pt_2 : [Float]
-        [point 2 for calculating distance]
+        [điểm 2 để tính khoảng cách]
     
     Returns
     -------
     [float]
-        [Distance b/w two points]
+        [Khoảng cách 2 điểm]
     """
+    return ma.sqrt(ma.pow((pt_1[0]-pt_2[0]), 2) + ma.pow((pt_1[1]-pt_2[1]), 2))# độ dài vecto
 
-    return ma.sqrt(ma.pow((pt_1[0]-pt_2[0]), 2)+ma.pow((pt_1[1]-pt_2[1]), 2))

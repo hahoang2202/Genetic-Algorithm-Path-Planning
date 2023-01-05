@@ -11,8 +11,8 @@ end_index = npts - 1
 generations = 1 #giới hạn ban đầu là thế hệ 1
 prev_best_fitness = 0
 nobs = 7#số vật cản
-nbits = ma.log10(npts) / ma.log10(2)#4
-chr_len = int(((nobs+2)*nbits)/nbits)#4- số lượng kết nối tối đa
+nbits = ma.log10(npts) / ma.log10(2)# số bit bằng 40% số NST / 2 = 4
+chr_len = int(((nobs+2)*nbits)/nbits)#36 bit cho 7 chướng ngại vật và nbits
 stop_criteria = 0 #tiêu chí để dừng
 stop_generation = False
 img_iter_no = 1
@@ -24,8 +24,7 @@ plt_ax_y_max = 16.0
 
 def define_links():
     """
-    This function defines the links b/w path points
-    
+    Chức năng này xác định các liên kết b/w điểm đường dẫn
     Returns
     -------
     [numpy.ndarray]
@@ -36,7 +35,7 @@ def define_links():
         liên tiếp được kết nối thì độ thích nghi của nhiễm sắc thể đó tăng lên]
     """
 
-    link = -1 * np.ones((16, 5))
+    link = -1 * np.ones((16, 5))#tạo ma trận 16 hàng, 5 cột
 
     link[0][0] = 0
     link[0][1] = 1

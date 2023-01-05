@@ -4,7 +4,6 @@ import matplotlib.pyplot as plt
 
 def show_plot(best_chromosome, inf_time=False):
     """
-    This function is responsible for displaying plot.
     Vẽ đồ thị để theo dõi đường đi
     
     Parameters
@@ -24,9 +23,9 @@ def show_plot(best_chromosome, inf_time=False):
     best_path_x = []
     best_path_y = []
 
-    plt.annotate('Start Point', xy=(Config.path_points[int(best_chromosome[0])][0] 
+    plt.annotate('Start Point', xy=(Config.path_points[int(best_chromosome[0])][0] #điểm đầu điểm 0
         + Config.plt_tolerance, Config.path_points[int(best_chromosome[0])][1]))
-    plt.annotate('Goal Point', xy=(Config.path_points[int(best_chromosome[-1])][0]
+    plt.annotate('Goal Point', xy=(Config.path_points[int(best_chromosome[-1])][0] #điểm cuối điểm 15
         + Config.plt_tolerance, Config.path_points[int(best_chromosome[-1])][1]))
 
     plt.text(x=Config.plt_ax_x_min, y=Config.plt_ax_y_max + Config.plt_tolerance, 
@@ -39,7 +38,7 @@ def show_plot(best_chromosome, inf_time=False):
 
     plt.plot(best_path_x, best_path_y, "g-")
     plt.draw()
-    plt.savefig("./docs/images/"+str(Config.img_iter_no)+".png")
+    plt.savefig("./docs/images/"+str(Config.img_iter_no)+".png") # lưu trữ trong thư mục ảnh
     Config.img_iter_no += 1
     if not inf_time:
         plt.pause(0.01)
@@ -49,25 +48,29 @@ def show_plot(best_chromosome, inf_time=False):
 
 def _draw_path_points():
     """
-    This function is responsible for displaying path points on plot.
     Chức năng này chịu trách nhiệm hiển thị các điểm đường dẫn trên ô.
     """
 
     node_x = []
     node_y = []
 
-    for element in Config.path_points:
-        node_x.append(element[0])
-        node_y.append(element[1])
+    for element in Config.path_points:#vòng lặp thêm vị trí của từng điểm đường dẫn
+        node_x.append(element[0]) # tọa độ trục hoành
+        node_y.append(element[1]) # tọa độ trục tung
 
     plt.plot(node_x, node_y, "ko")
 
 
 def _draw_obstacles():
     """
-    This function is responsible for displaying obstacles on plot.
-    Chức năng này có nhiệm vụ hiển thị các chướng ngại vật trên cốt truyện.
+    Chức năng này có nhiệm vụ hiển thị các chướng ngại vật trên dữ liệu được tạo.
     """
+    '''
+    5 điểm tọa độ ngược chiều kim đồng hồ
+    x là trục hoành - nằm ngang
+    y là trục tung - nằm dọc
+    r là màu sắc của obs - vật cản
+    '''
 
     obs_1_x = [2.5, 3.5, 3.5, 2.5, 2.5]
     obs_1_y = [9, 9, 12, 12, 9]
