@@ -1,12 +1,3 @@
-"""
-Main script
-
-Contains: main function
-
-Author: Yasim Ahmad(yaaximus)
-
-Email: yasim.ahmed63@yahoo.com
-"""
 from tools.population import population
 from tools.fitness import fitness
 from tools.ranking import ranking
@@ -17,9 +8,9 @@ from config import Config
 
 def main():
     """
-    This function encapsulates the cappbilty of initializing chromosome population
-    and then continue calculating fitness, generate ranking, perform crossover and
-    mutation & repeating above steps until a defined stopping crietia is not met.
+    Chức năng này gói gọn khả năng khởi tạo quần thể nhiễm sắc thể
+    và sau đó tiếp tục tính toán thể lực, tạo xếp hạng, thực hiện chéo và
+    đột biến & lặp lại các bước trên cho đến khi không đáp ứng tiêu chí dừng đã xác định
     """
 
     chr_population = population()

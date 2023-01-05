@@ -1,12 +1,3 @@
-"""
-Script provides functionality related to fitness of chromosomes based
-on total distance and connection b.w two consecutive nodes of a chromosome
-
-Author: Yasim Ahmad(yaaximus)
-
-Email: yasim.ahmed63@yahoo.com
-"""
-
 from config import Config
 from tools.population import calculate_distance
 
@@ -15,13 +6,11 @@ import numpy as np
 
 def fitness(chr_pop):
     """
-    This function is responsible for calculating fitness of chromosomes.
     Chức năng này chịu trách nhiệm tính toán mức độ phù hợp của NST.
     
     Parameters
     ----------
     chr_pop : [numpy.ndarray]
-        [Population of chromosomes whose fitness is to be calculated]
         Các NST có thể tính toán
     
     Returns
@@ -49,7 +38,6 @@ def fitness(chr_pop):
 
 def chr_best_fit_ind(chr_fit):
     """
-    This function is responsible for finding best fitness chromosome indices.
     Chức năng này chịu trách nhiệm tìm kiếm các chỉ số thích nghi tốt nhất NST.
     
     Parameters
@@ -84,20 +72,15 @@ def chr_best_fit_ind(chr_fit):
 
 def chr_fit(chr_fit_based_dist, chr_fit_based_conn):
     """
-    This function is responsible for calculating fitness of chromosome population
-    based on total distance of individual chromosome, and links b/w path points
-    of individual chromosome.
     
     Tính toán mức độ phù hợp của NST giữa trên khoảng cách và khả năng kết nối giữa 2 NST
     
     Parameters
     ----------
     chr_fit_based_dist : [numpy.ndarray]
-        [numpy array of chromosome fitness based on total distance]
         Mảng chỉ số khoảng cách
+
     chr_fit_based_conn : [numpy.ndarray]
-        [numpy array of chromosome fitness based on links b/w path 
-        points of individual chromosome]
         Mảng khả năng kết nối giữa 2 NST (2 điểm)
     
     Returns
@@ -117,14 +100,11 @@ def chr_fit(chr_fit_based_dist, chr_fit_based_conn):
 
 def chr_fit_based_conn(chr_conn):
     """
-    This function is responsible for calculating fitness of chromosome population
-    based on number of connections b/w path points of an individual chromosome
     Tính toán mức độ phù hợp dựa trên số lượng kết nối từ 1 NST đến các NST khác
     
     Parameters
     ----------
     chr_conn : [numpy.ndarray]
-        [numpy array of number of connection b/w path points of an individual chromosome]
         Mảng chứa số lượng điểm có thể kết nối từ 1 điểm
     
     Returns
@@ -144,20 +124,16 @@ def chr_fit_based_conn(chr_conn):
 
 def chr_conn(chr_pop):
     """
-    This function is responsible for finding number of connections b/w path points of
-    a individual chromosome.
     Hàm tìm kiếm số đường dẫn từ 1 điểm
     
     Parameters
     ----------
     chr_pop : [numpy.ndarray]
-        [Population of chromosomes whose number of connections are to be calculated]
         Các NST cần tính toán số lượng đường dẫn
     
     Returns 
     -------
     [numpy.ndarray]
-        [numpy array of number of connection b/w path points of an individual chromosome]
         Số lượng đường dẫn của 1 điểm
     """
 
@@ -177,14 +153,11 @@ def chr_conn(chr_pop):
 
 def chr_fit_based_dist(chr_pts_consec_dist):
     """
-    This function is responsible for calculating chromosome fitness based on total
-    distance of individual chromosome.
     Tính toán dựa trên tổng khoảng cách
     
     Parameters
     ----------
     chr_pts_consec_dist : [numpy.ndarray]
-        [numpy array of individual chromosome total distance]
         Chứa tổng khoảng cách của 1 điểm
     
     Returns
@@ -205,14 +178,11 @@ def chr_fit_based_dist(chr_pts_consec_dist):
 
 def chr_pts_consecutive_dist(pop):
     """
-    This function is responsible for calculating total distance of individual
-    chromosome in population of chromosomes.
     Tính tổng khoảng cách của NST
     
     Parameters
     ----------
     pop : [numpy.ndarray]
-        [Population of chromosomes whose total distance is to be calculated]
         Các NST
     
     Returns

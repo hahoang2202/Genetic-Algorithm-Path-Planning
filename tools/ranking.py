@@ -1,12 +1,3 @@
-"""
-Script provide functionality related to ranking of the population. Ranking is 
-obtained using roulets wheel selection method.
-
-Author: Yasim Ahmad(yaaximus)
-
-Email: yasim.ahmed63@yahoo.com
-"""
-
 from config import Config
 
 import numpy as np
@@ -14,15 +5,15 @@ import numpy as np
 
 def ranking(chr_pop_fitness, pop):
     """
-    This function encapsulates the capability of generate ranking of chromosome
-    population based on roulet wheel selection method.
+    Chức năng này gói gọn khả năng tạo thứ hạng của nhiễm sắc thể
+    dân số dựa trên phương pháp lựa chọn bánh xe roulet.
     
     Parameters
     ----------
     chr_pop_fitness : [numpy.ndarray]
-        [fitness of chromosome population]
+        [Chỉ số của nhiễm sắc thể]
     pop : [numpy.ndarray]
-        [Population of chromosomes which will undergo ranking process]
+        [Quần thể nhiễm sắc thể sẽ trải qua quá trình xếp hạng]
     
     Returns
     -------
@@ -43,15 +34,15 @@ def ranking(chr_pop_fitness, pop):
 
 def _generate_mating_pool(chr_rank, pop):
     """
-    This function is responsible for generating mating pool which will undergo
-    crossover and mutation in the next stage.
+    Chức năng này chịu trách nhiệm tạo nhóm giao phối sẽ trải qua
+    lai ghép và đột biến ở giai đoạn tiếp theo.
     
     Parameters
     ----------
     chr_rank : [numpy.ndarray]
-        [ranks of chromosomes based on roulets wheeel selection method]
+        [Bậc của các nhiễm sắc thể dựa trên phương pháp chọn lọc tối ưu]
     pop : [numpy.ndarray]
-        [Population of chromosomes from which mating pool will be generated]
+        [Quần thể nhiễm sắc thể từ đó nhóm giao phối sẽ được tạo ra]
     
     Returns
     -------
@@ -72,18 +63,18 @@ def _generate_mating_pool(chr_rank, pop):
 
 def _ranking_based_on_roulet_wheel_selection(chr_cum_prob):
     """
-    This function encapsulates the capability of doing ranking of chromosomes
-    population based on roulets wheel selection method
+    Chức năng này gói gọn khả năng thực hiện xếp hạng các nhiễm sắc thể
+    dân số dựa trên phương pháp lựa chọn bánh xe
     
     Parameters
     ----------
     chr_cum_prob : [numpy.ndarray]
-        [Chromosome cumulative probabilty based on chromosome fitness]
+        [Xác suất tích lũy nhiễm sắc thể dựa trên thể lực của nhiễm sắc thể]
     
     Returns
     -------
     [numpy.ndarray]
-        [ranks of chromosomes based on roulets wheeel selection method]
+        [bậc của các nhiễm sắc thể dựa trên phương pháp chọn lọc bánh xe roulets]
     """
 
     rand_array = np.random.rand(Config.pop_max)
@@ -106,17 +97,14 @@ def _ranking_based_on_roulet_wheel_selection(chr_cum_prob):
 
 def cal_prob(chr_pop_fitness):
     """
-    
-    
-    Parameters
     ----------
     chr_pop_fitness : [numpy.ndarray]
-        [fitness of chromosome population]
+        [sự phù hợp của quần thể nhiễm sắc thể]
     
     Returns
     -------
     [numpy.ndarray]
-        [Chromosome probabilty based on chromosome fitness]
+        [Xác suất nhiễm sắc thể dựa trên chỉ số của nhiễm sắc thể]
     """
 
     chr_prob = np.zeros((Config.pop_max, 1))

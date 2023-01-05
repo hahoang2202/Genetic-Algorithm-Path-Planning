@@ -29,10 +29,6 @@ def define_links():
     Returns
     -------
     [numpy.ndarray]
-        [Every path point has a number of allowed connection with other path 
-        points. Those allowed connections are defined below. During calculation
-        of fitness of population if two consecutive path points are connected
-        then the fitness of that chromosome increases]
 
         [Mỗi điểm đường dẫn có một số kết nối được phép với các điểm đường dẫn khác.
         Những kết nối được phép đó được xác định bên dưới.

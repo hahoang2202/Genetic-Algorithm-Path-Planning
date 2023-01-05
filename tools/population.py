@@ -1,12 +1,3 @@
-"""
-Script provide functionality related to initialization of population based
-on nodes(path points) and links b/w nodes(path points)
-
-Author: Yasim Ahmad(yaaximus)
-
-Email: yasim.ahmed63@yahoo.com
-"""
-
 from config import Config
 
 import numpy as np
@@ -16,15 +7,14 @@ import random
 
 def population():
     """
-    This function encapsulates the capability to initialize population of chromosomes.
+    Chức năng này gói gọn khả năng khởi tạo quần thể nhiễm sắc thể.
     
     Returns
     -------
     [numpy.ndarray]
         [Population of chromosomes]
     """
-
-    # np.set_printoptions(threshold=np.nan)
+    
     link = Config.define_links()
     link_fit = _link_distance(link)
     link_prob = _link_prob(link_fit)
@@ -36,12 +26,12 @@ def population():
 
 def _link_distance(link):
     """
-    This function is responsible for calculating distance b/w links
+    Chức năng này chịu trách nhiệm tính toán khoảng cách giữa 2 điểm có thể liên kết
     
     Parameters
     ----------
     link : [numpy.ndarray]
-        [links b/w path points of chromosomes]
+        [Liên kết giữa các điểm]
     
     Returns
     -------
